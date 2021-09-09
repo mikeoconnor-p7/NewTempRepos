@@ -19,13 +19,17 @@ stages:
 - stage: Build
   displayName: Build Stage
 
-  pool:
-    vmImage: $(vmImageName)
+  jobs:
+  - job: Build
+    displayName: Build
 
-  steps:
-  - task: DotNetCoreCoreCLI@2
-    displayName: Build Server
-    inputs:
-      command: 'build'
-      projects: '**/EmptyApp.csproj'
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: DotNetCoreCoreCLI@2
+      displayName: Build Server
+      inputs:
+        command: 'build'
+        projects: '**/EmptyApp.csproj'
   

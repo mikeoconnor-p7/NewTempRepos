@@ -32,4 +32,28 @@ stages:
       inputs:
         command: 'build'
         projects: '**/EmptyApp.csproj'
+
+- stage: Release
+  displayName: Release stage
+
+  jobs:
+  - job: Release
+    displayName: Release to Azure
+
+    pool:
+      vmImage: $(vImageName)
+
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: Publish to project
+      inputs:
+        command: 'publish'
+        publishWebProjects: true
+
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: '62eeb809-9772-486e-92e9-a549e6ba9347'
+        WebAppName: 'EmptyApp-Blazor-Test'
+        package: '$(System.DefaultWorkingDirectory)/**/*.zip'
   

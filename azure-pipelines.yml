@@ -27,7 +27,7 @@ stages:
       vmImage: $(vmImageName)
 
     steps:
-    - task: DotNetCoreCoreCLI@2
+    - task: DotNetCoreCLI@2
       displayName: Build Server
       inputs:
         command: 'build'

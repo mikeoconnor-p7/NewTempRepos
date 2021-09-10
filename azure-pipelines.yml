@@ -52,8 +52,8 @@ stages:
 
     - task: AzureRmWebAppDeployment@4
       inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'LmtStaticServiceConnection'
+        ConnectionType: 'Azure'
+        azureSubscription: 'LmtServiceConnection'
         WebAppName: 'EmptyApp-Blazor-Test'
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
   

@@ -53,7 +53,7 @@ stages:
     - task: AzureRmWebAppDeployment@4
       inputs:
         ConnectionType: 'AzureRM'
-        azureSubscription: '62eeb809-9772-486e-92e9-a549e6ba9347'
+        azureSubscription: 'Azure subscription 1'
         WebAppName: 'EmptyApp-Blazor-Test'
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
   

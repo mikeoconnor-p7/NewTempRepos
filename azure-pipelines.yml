@@ -50,10 +50,9 @@ stages:
         command: 'publish'
         publishWebProjects: true
 
-    - task: AzureRmWebAppDeployment@4
+    - task: AzureWebApp@1
       inputs:
-        ConnectionType: 'Azure'
         azureSubscription: 'LmtServiceConnection'
-        WebAppName: 'EmptyApp-Blazor-Test'
+        appName: 'EmptyApp-Blazor-Test'
         package: '$(System.DefaultWorkingDirectory)/**/*.zip'
   
